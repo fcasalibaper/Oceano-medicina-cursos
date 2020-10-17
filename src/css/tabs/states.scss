@@ -1,0 +1,36 @@
+.tabs {
+  .tabs__selector {
+    .tabs__selector__box {
+      &.active {
+        color: $COLOR_BLUE;
+        &:after,
+        &:before {
+          width: 65%;
+
+          @include upTo(sm) {
+            width: 85%;
+          }
+        }
+
+        &:first-child,
+        &:last-child {
+          &:after,
+          &:before {
+            width: 50%;
+            @include upTo(sm) {
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tabs__wrapper {
+    .tabs__wrapper__content {
+      &.active {
+        display: flex;
+      }
+    }
+  }
+}

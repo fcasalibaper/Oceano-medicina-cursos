@@ -1,0 +1,48 @@
+.questions {
+  .step {
+    &.active {
+      display: flex;
+    }   
+  }
+
+  // radio
+  input.form-radio-input {
+    &[type="radio"]:checked+label { 
+      color: white;
+      background-color: $COLOR_CELESTE;
+      border-color: $COLOR_CELESTE;
+
+      &:before {
+        background-color: $COLOR_BLUE;
+        border-color: white;
+      }
+     } 
+  }
+  
+  // checkbox
+  input.form-check-input {
+    &[type="checkbox"]:checked+label {
+      &:before {
+        @extend .icon;
+        content: $icon-check;
+        color: white;
+        border: solid 1px $primary;
+        background-color: $primary;
+      }
+    }
+  }
+
+  .data {
+    &__body {
+      &.active {
+        span { display: none; }
+
+        input {
+          width: 100%;
+          height: auto;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

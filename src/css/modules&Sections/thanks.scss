@@ -1,0 +1,78 @@
+.thanks {
+  figure {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+
+    @include downTo(md) {
+     padding: 1rem 1.250rem;
+    }
+
+    @include upTo(sm) {
+      padding-top: 2rem;
+      max-width: 780px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 77px;
+
+      @include upTo(sm) {
+        margin-bottom: 120px;
+        justify-content: center;
+      }
+
+      i {
+        @include fontSize(44.5px);
+        @include upTo(sm) {
+          @include fontSize(115px);
+        }
+      }
+    }
+
+    hgroup {
+      h2 {
+        color: $COLOR_BLUE;
+        @include fontSize(34px);
+        font-weight: $BLACK;
+        text-align: center;
+        margin-bottom: 30px;
+
+        @include upTo(sm) {
+          @include fontSize(48px);
+        }
+      }
+      p {
+        color: $COLOR_BLUE;
+        @include fontSize(18px);
+        font-weight: $REGULAR;
+        line-height: 1.3;
+        text-align: center;
+        color: $COLOR_DARKGREY;
+        margin-bottom: 40px;
+
+        @include upTo(sm) {
+          margin-bottom: 70px;
+          @include fontSize(27px);
+        }
+      }
+    }
+
+    a {
+      margin: auto;
+    }
+  }
+}

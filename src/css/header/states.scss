@@ -1,0 +1,90 @@
+@include keyframe (closefirst) {
+  0% {
+    transform: translateY(0) rotate(0);
+  } 
+  70% {
+    transform: translateY(10px) rotate(0);
+  }
+  100% {
+    transform: translateY(10px) rotate(45deg);
+  }
+}
+
+
+@include keyframe (middle) {
+  0% {
+    transform: rotate(0);
+  } 
+  70% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+@include keyframe (closeLast) {
+  0% {
+    transform: translateY(0) rotate(0);
+  } 
+  70% {
+    transform: translateY(-10px) rotate(0);
+  }
+  100% {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+
+body {
+  &.openMenu {
+    @include downTo(md) {
+      position:fixed;
+      overflow:hidden;
+    }
+    .overlay {
+      @include downTo(md) {
+        display: flex;
+        background-color: rgba(#000000, .44);
+      }
+    }
+
+    .menu--hamburger { 
+      right: 143px;
+      z-index: 9999;
+      transition-delay: 50ms;
+      top: 5px;
+
+      .cont {
+        span {
+          &:nth-child(1) {
+            @include animation(1ms, 250ms, closefirst)
+          }
+          &:nth-child(2) {
+            @include animation(1ms, 250ms, middle)
+          }
+          &:nth-child(3) {
+            @include animation(1ms, 250ms, closeLast)
+          }
+        }
+      }
+    }
+
+    .header__links {
+      @include downTo(md) {
+        right: 0;
+        opacity: 1;
+        z-index: 999;
+
+        li {
+          @for $i from 1 through 5 {
+            &:nth-child(#{$i}) {
+              opacity: 1;
+              transition-delay: #{$i*52}ms;
+              left: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

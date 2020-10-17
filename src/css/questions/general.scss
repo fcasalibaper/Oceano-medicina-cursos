@@ -1,0 +1,135 @@
+%hiddenInput {
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.questions {
+  .form__description {
+    h3,
+    span.blue {
+      color: $COLOR_BLUE
+    }
+  }
+
+  .step {
+    display: none;
+    @extend .col-xs-12;
+    flex-direction: column;
+  }
+  
+  .questions__wrapper {
+    margin: 3rem 0 2rem 0;
+
+    @include upTo(sm) {
+      margin: 2.3rem 0 2rem 0;
+    }
+
+    h3 {
+      @include fontSize(16px);
+      color: $COLOR_BLUE;
+      font-weight: $MEDIUM;
+      text-transform: uppercase;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid $COLOR_GREY;
+      margin-bottom: 2.4rem;
+
+      @include upTo(sm) {
+        @include fontSize(18px);
+      }
+    }
+
+    button[type="submit"] {
+      margin-top: 3rem;
+    }
+  }
+
+  // captcha
+  .recaptchaHolder {
+    margin-top: 2rem;
+    & > * {
+      @include upTo(sm) {
+        max-width: 315px;
+      }
+    }
+  }
+
+  // data edition
+  .data {
+    border-radius: 8px;
+    background-color: $COLOR_LIGHTGREY2;
+    padding: 22px 25px;
+    margin-bottom: 3.5rem;
+    margin-top: -.8rem;
+
+    @include upTo(sm) {
+      margin-bottom: 4.2rem;
+      padding: 19px 25px;
+    }
+
+    header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0;
+
+      h4 {
+        color: #000000;
+        @include fontSize(18px);
+        font-weight: $REGULAR;
+        @include upTo(sm) {
+          @include fontSize(22px);
+        }
+      }
+      a {
+        color: $COLOR_BLUE;
+        text-decoration: underline;
+
+        &:visited,
+        &:active {
+          color: $COLOR_BLUE;
+        }
+      }
+    }
+
+    // ul
+    &__body {
+      display: flex;
+      flex-direction: column;
+
+      li {
+        width: 100%;
+        margin-bottom: 1.2rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      input {
+        @extend %hiddenInput;
+      }
+
+      label {
+        margin-bottom: .3rem;
+      }
+      
+      label,
+      span {
+        color: $COLOR_DARKGREY;
+        font-weight: $REGULAR;
+        @include fontSize(16px);
+        @include upTo(sm) {
+          @include fontSize(18px);
+        }
+      }
+
+      span {
+        color: #000000;
+      }
+    }
+  }
+}

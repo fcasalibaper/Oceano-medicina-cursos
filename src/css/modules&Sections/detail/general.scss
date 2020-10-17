@@ -1,0 +1,62 @@
+.detail {
+  padding-top: 5rem;
+  
+  // button download in tabs
+  .downloadPlan {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    margin-top: 35px;
+    
+    @include upTo(sm) {
+      margin-top: 44px;
+
+
+      .btn {
+        width: 382px;
+        text-align: center;
+      }
+    }
+
+    span {
+      font-weight: $MEDIUM;
+      text-align: center;
+      @include fontSize(16px);
+      color: $COLOR_DARKGREY;
+      margin-bottom: 30px;
+
+      @include upTo(sm) {
+        @include fontSize(20px);
+        margin-bottom: 38px;
+      }
+    }
+  }
+
+  // description
+  article {
+    padding: 5rem 0;
+
+    h2, h3 {
+      color: $COLOR_BLUE;
+      margin-bottom: 2rem;
+      font-weight: $BOLD;
+      @include fontSize(28px)
+    }
+
+    p {
+      @include fontSize(18px);
+      line-height: 1.38;
+      @include upTo(sm) {
+        @include fontSize(22px);
+      }
+      color: $COLOR_DARKGREY3;
+      margin-bottom: 5rem;
+      font-weight: $REGULAR;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

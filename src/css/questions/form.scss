@@ -1,0 +1,101 @@
+.questions {
+  &__wrapper {
+    // for radio
+    .form-radio {
+      margin-bottom: .8rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &-input {
+        @extend %hiddenInput; 
+      }
+
+      &-label {
+        cursor: pointer;
+        margin-bottom: 0;
+        position: relative;
+        width: 100%;
+        border: 1px solid $COLOR_GREY;
+        padding: 15px 25px;
+        color: $COLOR_GREY;
+        @include fontSize(16px);
+        font-weight: $REGULAR;
+        text-transform: uppercase;
+        border-radius: 8px;
+        transition: $TRANSITION;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: inherit;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: $CHECKBOX_SIZE;
+          height: $CHECKBOX_SIZE;
+          background-color: white;
+          border: 1px solid $COLOR_GREY;
+          border-radius: 100%;
+          margin-right: 23px;
+          transition: $TRANSITION;
+
+          @include upTo(sm) {
+            margin-right: 31px;
+          }
+        }
+
+        @include upTo(sm) {
+          @include fontSize(18px);
+        }
+      }
+    }
+
+     // checkbox
+    .form-check {
+      display: flex;
+      padding-left: 0;
+
+      @include upTo(xs) {
+        padding-top: 0;
+      }
+
+      &-input {
+        @extend %hiddenInput;
+      }
+
+      &-label {
+        position: relative;
+        order: 0;
+        display: inline-table;
+        align-items: flex-start;
+        padding-left: 32px;
+        cursor: pointer;
+        color: $COLOR_GREY;
+        @include fontSize(14px);
+        font-weight: $REGULAR;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    
+        &:before {
+          transition: $TRANSITION;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          border-radius: 5px;
+          padding: .350rem;
+          @include fontSize(10px);
+          width: $CHECKBOX_SIZE - 10.319px;
+          height: $CHECKBOX_SIZE - 10.319px;
+          border: solid 1px $COLOR_GREY;
+          background-color: white;
+          display: inline-flex;
+          line-height: 15px;
+          content: '';
+        }
+
+        a { color: #4173CD }
+      }
+    }
+  }
+}

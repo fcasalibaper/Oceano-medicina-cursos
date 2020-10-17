@@ -1,0 +1,102 @@
+.form {
+  padding-top: 1rem;
+  padding-bottom: 6rem;
+  
+  header {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    
+    i {
+      @include fontSize(44.5px);
+      @include upTo(sm) {
+        @include fontSize(57px);
+      }
+    }
+  }
+
+  &__wrapper {
+    max-width: calc(475px + 125px);
+
+    @include upTo(sm) {
+      padding-left: 125px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h3 {
+      font-weight: $BLACK;
+      color: $COLOR_DARKGREY;
+      @include fontSize(30px);
+      margin-bottom: 2.3rem;
+      
+      @include upTo(sm) {
+        @include fontSize(36px);
+      }
+    }
+    span {
+      font-weight: $REGULAR;
+      color: $COLOR_DARKGREY;
+      @include fontSize(18px);
+
+      @include upTo(sm) {
+        @include fontSize(22px);
+      }
+    }
+
+    &__detail {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      border: 1px solid $COLOR_GREY;
+      border-radius: 10px;
+      padding: 2.16735rem;
+      font-weight: $BOLD;
+      color: $COLOR_GREY;
+      @include fontSize(16px);
+      width: 100%;
+
+      @include upTo(sm) {
+        @include fontSize(22px);
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+        width: auto;
+      }
+    }
+  }
+
+  form {
+    max-width: 475px;
+    
+    .colNoWrap {
+      .custom-select-wrapper {
+        margin-right: 2rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    label[for="mensaje"] {
+      margin-top: #{$INPUT_HEIGHT_DESKTOP / 2.3};
+
+      @include break(xs) {
+        margin-top: #{$INPUT_HEIGHT_MOBILE / 2.3};
+      }
+    }
+  }
+
+
+  button {
+    @include fontSize(18px);
+    font-weight: $MEDIUM;
+
+    @include upTo(sm) {
+      @include fontSize(20px);
+      height: 72px;
+    }
+  }
+}
