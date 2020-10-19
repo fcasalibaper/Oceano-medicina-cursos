@@ -126,10 +126,22 @@
 
         &.listCourses {
           li {
+            position: relative;
             @include fontSize(16px);
             margin-bottom: .55em;
+            
             @include upTo(sm) {
               @include fontSize(18px);
+            }
+            
+            &:after {
+              cursor: pointer;
+              @extend .icon;
+              content: $icon-close;
+              font-size: .8em;
+              position: absolute;
+              top: .25em;
+              right: 0;
             }
           }
         }

@@ -116,10 +116,16 @@
 
     li {
       margin: 1rem 0;
+      justify-content: flex-start;
 
       @include upTo(sm) {
         margin: 2rem 0;
       }
+
+      a {
+        text-align: left;
+      }
+      
     }
 
   }
