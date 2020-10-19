@@ -96,8 +96,7 @@ export default function FormValidation() {
 
         $('.coursesSelected').html(`<ul><li class="title">Cursos seleccionados</li><ul><ul class="listCourses"></ul>`)
         
-        $('.listCourses').append(all)
-
+        $('.listCourses').append(all);
 
 
         if ( !$('.custom-options').hasClass('selected') ) {
@@ -107,7 +106,7 @@ export default function FormValidation() {
           // remove initial plcaholder
           oceanoForm.selectCustom.removePlaceholder($elementToChange.find('span'))
         }
-      }, 
+      },
 
       removePlaceholder : (elPlaceholder) => {
         if (elPlaceholder.hasClass('placeholder')) {

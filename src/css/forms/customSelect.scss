@@ -72,6 +72,9 @@
         border: $INPUT_BORDER;
         border-bottom: $INPUT_BORDER_BOTTOM;
         vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         @include break(xs) {
           @include fontSize($INPUT_FONT_SIZE_MOBILE);

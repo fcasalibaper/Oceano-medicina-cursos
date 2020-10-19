@@ -39,9 +39,9 @@ export default function General() {
         },
 
         openCloseChild : () => {
-            const $btn = $('#clickButton');
+            const $btn = $('#clickButton').add('.clickButtonchild');
 
-            $btn.on('click', function () {
+            $btn.on('click', function (event) {
                 $(this).parent().toggleClass('active');
             })
         },
