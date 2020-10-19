@@ -26,10 +26,50 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .icon-check {
   &:before {
-    content: $icon-check;     
-    color: #000000;
+    content: $icon-check; 
+  }
+}
+.icon-arr-left-slide {
+  &:before {
+    content: $icon-arr-left-slide; 
+  }
+}
+.icon-arr-right-slide {
+  &:before {
+    content: $icon-arr-right-slide; 
+  }
+}
+.icon-clock {
+  &:before {
+    content: $icon-clock; 
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close; 
+  }
+}
+.icon-amir {
+  &:before {
+    content: $icon-amir; 
+  }
+}
+.icon-down {
+  &:before {
+    content: $icon-down; 
+  }
+}
+.icon-up {
+  &:before {
+    content: $icon-up; 
+  }
+}
+.icon-checked {
+  &:before {
+    content: $icon-checked; 
   }
 }
 .icon-logo-color .path1 {

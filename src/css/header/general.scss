@@ -53,6 +53,35 @@
       padding: 120px 20px 20px 40px;
       height: 100vh;
       transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+
+      // MENU CURSES
+      &--courses {
+        padding: 120px 20px 20px 20px;
+        
+        ul {
+          overflow-y: scroll;
+        }
+
+        li {
+          a {
+            display: flex;
+            width: 100%;
+            text-align: right;
+          }
+        }
+      }
+
+      &:before {
+        transition: all 1ms linear;
+        content: '';
+        position: fixed;
+        width: 100%;
+        max-width: 213px;
+        z-index: 1;
+        height: 12%;
+        top: 0;
+        right: 0;
+      }
     }
 
     @include upTo(sm) {
@@ -67,6 +96,16 @@
         transition: all 550ms $ANIMATION_EASING;
         left: 40%;
         opacity: 0;
+        
+        &.title {
+          &:after {
+            content: '';
+            display: flex;
+            width: 100%;
+            background-color: #ffffff;
+            height: 1px;
+          }
+        }
       }
       
       @include upTo(sm) {

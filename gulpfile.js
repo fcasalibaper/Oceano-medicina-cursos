@@ -102,7 +102,7 @@ gulp.task('sass', function () {
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    // .pipe(sourcemaps.write('./maps')) // quitar al finalizar
+    .pipe(sourcemaps.write('./maps')) // quitar al finalizar
     .pipe( gulp.dest('./app/css') )
 });
 

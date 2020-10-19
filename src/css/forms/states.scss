@@ -50,6 +50,19 @@ form.was-validated {
   }
 }
 
+// checkbox
+input.form-check-input {
+  &[type="checkbox"]:checked+label {
+    &:before {
+      @extend .icon;
+      content: $icon-check;
+      color: white;
+      border: solid 1px $primary;
+      background-color: $primary;
+    }
+  }
+}
+
 .was-validated .form-check-input:valid ~ .form-check-label,
 .form-check-input.is-valid ~ .form-check-label,
 .was-validated .form-radio-input:valid ~ .form-radio-label,
@@ -57,4 +70,6 @@ form.was-validated {
   color: $COLOR_INPUT;
 }
   
+
+
   

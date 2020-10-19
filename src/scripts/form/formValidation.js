@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 export default function FormValidation() {
+  let titles = [];
   const oceanoForm = {
     init : () => {
       $(document).ready(function() {
@@ -35,7 +36,10 @@ export default function FormValidation() {
         });
         $('.custom-options').on('click', 'span', function() {
           const data = $(this);
-          oceanoForm.selectCustom.setNewData(data)
+          const parent = data.parent();
+
+          !parent.hasClass('custom-options--multi') ? oceanoForm.selectCustom.setNewData(data) : oceanoForm.selectCustom.setNewDataMulti(data)
+          
         });
       },
 
@@ -59,6 +63,46 @@ export default function FormValidation() {
           // states 
           selectedData.siblings().removeClass('selected')
           selectedData.addClass('selected');
+          
+          // remove initial plcaholder
+          oceanoForm.selectCustom.removePlaceholder($elementToChange.find('span'))
+        }
+      }, 
+
+      setNewDataMulti : ( el ) => {
+        const selectedData = el;
+        const $elementToChange = selectedData.parent().siblings('.custom-select__trigger');
+
+        if (!el.hasClass('selected')) {
+          titles.push(el.text());
+        } else {
+          const filteredItems = titles.filter(function(item) {
+            titles = [];
+            return item !== el.text()
+          })
+          titles.push(...filteredItems);
+        }
+        let separator = titles.length > 0 ? titles.reduce((acc,el) => {
+          return `${acc}, ${el}`
+        }) : 'Cursos de Interés';
+
+        // prrint values 
+        $elementToChange.find('span').html(separator);
+        $elementToChange.find('input').val(separator);
+        
+        const all = titles.map(function (element) {
+          return $(`<li>${element}</li>`)
+        })
+
+        $('.coursesSelected').html(`<ul><li class="title">Cursos seleccionados</li><ul><ul class="listCourses"></ul>`)
+        
+        $('.listCourses').append(all)
+
+
+
+        if ( !$('.custom-options').hasClass('selected') ) {
+          // states 
+          selectedData.toggleClass('selected');
           
           // remove initial plcaholder
           oceanoForm.selectCustom.removePlaceholder($elementToChange.find('span'))

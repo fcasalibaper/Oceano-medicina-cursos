@@ -1,0 +1,14 @@
+.card {
+  h4 {
+    @include fontSize(22px);
+    text-align: center;
+    color: $COLOR_BLUE;
+    margin-bottom: 1.25rem;
+  }
+
+  #slider-thumbs {
+    .slick-list {
+      padding-bottom: 0 !important;
+    }
+  }
+}

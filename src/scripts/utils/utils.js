@@ -60,8 +60,8 @@ export function clickToggle (elementClicked, elementToAddClass, classToAddandRem
   });
 }
 
-export function isMobile() {
-  return window.matchMedia("(max-width: 575px)").matches;
+export function isMobile(sizeCustom = '575px') {
+  return window.matchMedia(`(max-width: ${sizeCustom})`).matches;
 }
 
 export function DownTo(res) {

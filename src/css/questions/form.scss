@@ -49,53 +49,5 @@
         }
       }
     }
-
-     // checkbox
-    .form-check {
-      display: flex;
-      padding-left: 0;
-
-      @include upTo(xs) {
-        padding-top: 0;
-      }
-
-      &-input {
-        @extend %hiddenInput;
-      }
-
-      &-label {
-        position: relative;
-        order: 0;
-        display: inline-table;
-        align-items: flex-start;
-        padding-left: 32px;
-        cursor: pointer;
-        color: $COLOR_GREY;
-        @include fontSize(14px);
-        font-weight: $REGULAR;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    
-        &:before {
-          transition: $TRANSITION;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          border-radius: 5px;
-          padding: .350rem;
-          @include fontSize(10px);
-          width: $CHECKBOX_SIZE - 10.319px;
-          height: $CHECKBOX_SIZE - 10.319px;
-          border: solid 1px $COLOR_GREY;
-          background-color: white;
-          display: inline-flex;
-          line-height: 15px;
-          content: '';
-        }
-
-        a { color: #4173CD }
-      }
-    }
   }
 }

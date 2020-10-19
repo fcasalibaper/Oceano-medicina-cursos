@@ -171,6 +171,32 @@
       &.selected {
         background-color: $COLOR_OPTION;
       }
+
+      // CHECKBOX STYLE
+      &--box {
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 6%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          border: 1px solid $COLOR_GREY;
+        }
+
+        &.selected {
+          &:before {
+            @extend .icon;
+            content: $icon-checked;
+            font-size: 1em;
+            position: absolute;
+            top: 50%;
+            right: 6.5%;
+            transform: translateY(-50%);
+          }
+        }
+      }
     }
 
     &.country {

@@ -5,6 +5,12 @@
   flex-direction: column;
 }
 
+.txcDesktop {
+  @include upTo(sm) {
+   text-align: center;
+  }
+}
+
 .overlay {
   position: absolute;
   display: none;

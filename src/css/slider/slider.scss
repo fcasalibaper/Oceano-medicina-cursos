@@ -1,0 +1,147 @@
+.slick-slider {
+  position: relative;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  overflow:hidden;
+
+  @include downTo(md) {
+    width: 100vw;
+    left: -$PADDING_MOBILE;
+  }
+
+  .slick-slide {
+    /*display: none;*/
+    // overflow: hidden;
+    position: relative;
+    left: 0;
+    transition : all 350ms $ANIMATION_EASING;
+    @include downTo(md) {
+      margin: 0 10px;
+    }
+  }
+
+  &.slick-initialized  .slick-slide {
+    display: flex !important;
+  }
+
+  .slick-loading .slick-slide {
+    visibility: hidden;
+  }
+
+  /* BUTTONS */
+  .slick-arrow {
+    $ml  : 1.15em;
+    $width_arrow : 49px;
+
+    position: absolute;
+    z-index: 9;
+    cursor: pointer;
+    top:37%;
+    transform: translateY-(50%);
+    border: solid 1px transparent;
+    opacity: 0.9;
+    padding: 0;
+    transition: $TRANSITION;
+
+    &.slick-disabled {
+      visibility:hidden;
+    }
+
+    &:hover,
+    &:focus {
+      outline:none;
+    }
+
+    i {
+      @include fontSize(40px);
+      color: $COLOR_BLUE;
+    }
+
+    /* PREV */
+    &.slick-prev {
+      left:0;
+      i {
+      }
+    }
+
+    /* NEXT */
+    &.slick-next {
+      right:0;
+      i {
+      }
+    }
+  }
+
+  li {
+    outline:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .slick-dots {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    height: 12.27px;
+
+    @include upTo(sm) {
+      height: 17px;
+    }
+
+    li {
+      width: 12.27px;
+      height: 12.27px;
+      max-width: 12.27px;
+      max-height: 12.27px;
+      border-radius: 100%;
+      background-color: $COLOR_DOTS;
+      margin: 0 5px;
+
+      @include upTo(sm) {
+        width: 17px;
+        height: 17px;
+        width: 17px;
+        height: 17px;
+      }
+      
+      &.slick-active {
+        background-color: $COLOR_CELESTE;
+      }
+
+      [role="tab"] { display: none }
+    }
+  }
+
+  /* CONTENT LIST */
+  .slick-list {
+    overflow: hidden;
+    width: 100%;
+    padding-top: 20px !important;
+    padding-bottom: 45px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    @include upTo(sm) {
+      padding-bottom: 55px !important;
+    }
+  }
+
+  .slick-track {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    // transform: translate3d(0px, 0px, 0px)!important;
+    // max-width: 100%;
+  }
+}

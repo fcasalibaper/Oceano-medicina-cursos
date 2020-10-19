@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<head>
+  @@include('includes/head.inc.html')
+</head>
+
+<body>
+  <div class="cFull">
+    <section class="form">
+      <div class="container">
+        <header>
+          @@include('icons/iconColor.html')
+          <span class="separator">
+            <i class="icon icon-amir"></i>
+          </span>
+        </header>
+
+        <div class="form__wrapper">
+
+          <div class="form__description form__description--courses">
+            <h3>¡Queremos conocerte mejor!</h3>
+            <span>
+              Para ayudarte, necesitamos algunos datos para que nuestro equipo de admisiones te contacte y pueda asesorarte según tu profesión, especialidad y objetivos profesionales
+            </span>
+          </div>
+
+          <form class="needs-validation" novalidate>
+            <div class="form-row">
+              <div class="col">
+                <input id="nombre" type="text" class="form-control" placeholder="Nombre" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <input id="apellido" type="text" class="form-control" placeholder="Apellido" required/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <input id="email" type="email" class="form-control" placeholder="Email" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col colNoWrap xCenter">
+                <div class="custom-select-wrapper col-xs-5 col-sm-5 col-md-4">
+                  <small>Código país</small>
+                  <div class="custom-select">
+                    <div class="custom-select__trigger">
+                      <input id="cod" name="cod" class="form-control" required />
+                      <span></span>
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options country" style="width: 155px;">
+                      <span class="custom-option selected">@@include('icons/ar.html') AR + 54</span>
+                      <span class="custom-option">@@include('icons/bo.html') BO + 54</span>
+                      <span class="custom-option">@@include('icons/col.html') CO + 54</span>
+                      <span class="custom-option">@@include('icons/cos.html') COS + 54</span>
+                      <span class="custom-option">@@include('icons/sal.html') SAL + 54</span>
+                      <span class="custom-option">@@include('icons/gua.html') GUA + 54</span>
+                      <span class="custom-option">@@include('icons/hon.html') HON + 54</span>
+                      <span class="custom-option">@@include('icons/mex.html') MX + 54</span>
+                      <span class="custom-option">@@include('icons/nic.html') NI + 54</span>
+                      <span class="custom-option">@@include('icons/pan.html') PAN + 54</span>
+                      <span class="custom-option">@@include('icons/pa.html') PA + 54</span>
+                      <span class="custom-option">@@include('icons/pe.html') PE + 54</span>
+                      <span class="custom-option">@@include('icons/dom.html') DO + 54</span>
+                      <span class="custom-option">@@include('icons/ur.html') UR + 54</span>
+                      <span class="custom-option">@@include('icons/ven.html') VE + 54</span>
+                    </div>
+                  </div>
+                </div>
+
+                <input id="telefono" type="phone" class="form-control col-xs-7 col-sm-7 col-md-8"placeholder="Teléfono" required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <div class="custom-select-wrapper col-xs-12">
+                  <div class="custom-select">
+                    <div class="custom-select__trigger">
+                      <input name="profesion" id="profesion" class="form-control" required />
+                      <span class="placeholder">Profesión</span>
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options" style="width: 475px;">
+                      <span class="custom-option">Médico</span>
+                      <span class="custom-option">Lic. de la salud</span>
+                      <span class="custom-option">Técnico Universitario</span>
+                      <span class="custom-option">Enfermeros / Auxiliares</span>
+                      <span class="custom-option">Residentes / Estudiantes</span>
+                      <span class="custom-option">Fuerza Pública</span>
+                      <span class="custom-option">Otra Profesión</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <div class="custom-select-wrapper col-xs-12">
+                  <div class="custom-select">
+                    <div class="custom-select__trigger">
+                      <input name="especialidad" id="especialidad" class="form-control" required />
+                      <span class="placeholder">Especialidad</span>
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options" style="width: 475px;">
+                      <span class="custom-option">Médico</span>
+                      <span class="custom-option">Lic. de la salud</span>
+                      <span class="custom-option">Técnico Universitario</span>
+                      <span class="custom-option">Enfermeros / Auxiliares</span>
+                      <span class="custom-option">Residentes / Estudiantes</span>
+                      <span class="custom-option">Fuerza Pública</span>
+                      <span class="custom-option">Otra Profesión</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="col">
+                <div class="custom-select-wrapper custom-select-wrapper--multi col-xs-12">
+                  <div class="custom-select">
+                    <div class="custom-select__trigger">
+                      <input name="cursosInteres" id="cursosInteres" class="form-control" required />
+                      <span class="placeholder">Cursos de Interés</span>
+                      <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options custom-options--multi" style="width: 475px;">
+                      <span class="custom-option custom-option--box">Médico</span>
+                      <span class="custom-option custom-option--box">Lic. de la salud</span>
+                      <span class="custom-option custom-option--box">Técnico Universitario</span>
+                      <span class="custom-option custom-option--box">Enfermeros / Auxiliares</span>
+                      <span class="custom-option custom-option--box">Residentes / Estudiantes</span>
+                      <span class="custom-option custom-option--box">Fuerza Pública</span>
+                      <span class="custom-option custom-option--box">Otra Profesión</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>            
+
+            <div class="form-row">
+              <div class="col">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" type="mensaje" class="form-control"></textarea>
+              </div>
+            </div>
+
+            <div class="form__description__detail coursesSelected">
+              <ul>
+                <li class="title">Cursos seleccionados</li>
+              </ul>
+            </div>
+
+            <div class="form-check space--bottom">
+              <input class="form-check-input" type="checkbox" id="conditions" required />
+              <label for="conditions" class="form-check-label">Acepto las <a href="#">condiciones de privacidad</a></label>
+            </div>
+
+            <div id="captcha" class="recaptchaHolder">
+              <!-- IMAGEN DE CAPTCHA DE EJEMPLO -->
+              <img src="images/recaptcha.png" /> 
+            </div>
+
+            <button type="submit" class="btn btn--filled btn--filled--secondary space--top">ENVIAR DATOS</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- scripts -->
+  @@include('includes/scripts.inc.html')
+</body>
+
+</html>

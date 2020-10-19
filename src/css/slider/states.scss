@@ -1,0 +1,129 @@
+$position_inactive: 10%;
+
+@include keyframe (firstThree) {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframe (figure) {
+  0% {
+    height: 140px;
+  }
+  100% {
+    height: 165px;
+  }
+}
+
+@include keyframe (box) {
+  0% {
+    top: 1.2rem
+  }
+  100% {
+    top: 0
+  }
+}
+
+@include keyframe (left) {
+  0% {
+    opacity: 0;
+    transform: translate(100%,5%) rotate3d(90, 90, 1, 45deg);
+  } 
+  50% {
+    opacity: .8;
+    transform: translate(60%,5%) rotate3d(90, 90, 1, 35deg);
+  }
+  70% {
+    transform: translate(50%,5%) rotate3d(90, 90, 1, 25deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(40%,5%) rotate3d(90, 90, 1, 0deg);
+  }
+}
+
+@include keyframe (right) {
+  0% {
+    opacity: 0;
+    transform: translate(-100%,5%) rotate3d(-90, 90, 1, 45deg);
+  } 
+  50% {
+    opacity: .8;
+    transform: translate(-60%,5%) rotate3d(-90, 90, 1, 35deg);
+  }
+  70% {
+    
+    transform: translate(-50%,5%) rotate3d(-90, 90, 1, 25deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-40%,5%) rotate3d(-90, 90, 1, 0deg);
+  }
+}
+
+@include keyframe (current) {
+  0% {
+    opacity: 1;
+    transform: translate(0,0) scale(0.94);
+  } 
+  50% {
+    opacity: 1;
+    transform: translate(0,-5%) scale(0.97);
+  } 
+  100% {
+    opacity: 1;
+    transform: translate(0,0) scale(1);
+  }
+}
+
+.card {
+  .slider-carousel {
+    .slick-slide {
+      &.slick-current {
+        z-index: 1;
+        @include upTo(sm) {
+          @include animation(100ms, 350ms, current);
+        }
+
+        .card__box {
+          @include downTo(sm) {
+            @include animation(10ms, 200ms, box);
+          }
+        }
+
+        @include downTo(sm) {
+          figure {
+            @include animation(210ms, 150ms, figure);
+          }
+        }
+  
+        footer {
+          display: flex;
+        }
+      }
+  
+      &.left {
+        @include upTo(sm) {
+          @include animation(150ms, 350ms, left);
+        }
+      }
+  
+      &.right {
+        @include upTo(sm) {
+          @include animation(150ms, 350ms, right);
+        }
+      }
+
+
+      @include downTo(md) {
+        opacity: 1;
+      }
+    }
+  }
+}

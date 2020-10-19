@@ -1,0 +1,15 @@
+.byc {
+  .active {
+    header {
+      i {
+        &:before {
+          content: $icon-arrow-up;
+        }
+      }
+    }
+    .openContent {
+      opacity: 1;
+      height: auto;
+    }
+  }
+}

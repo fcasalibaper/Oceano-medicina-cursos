@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { checkIsInScreen } from '../utils/utils';
+import { checkIsInScreen, toolResponsive } from '../utils/utils';
 
 export default function General() {
     const oceano = {
@@ -10,10 +10,11 @@ export default function General() {
         },
 
         ready: () => {
-            // toolResponsive();
+            toolResponsive();
             oceano.onScroll();
             oceano.scrollElement('#referenceFixedPosition');
             oceano.dropDown();
+            oceano.openCloseChild();
         },
 
         onScroll : () => {
@@ -35,6 +36,14 @@ export default function General() {
                     $elementToAddFixed.removeClass('fixedPosition');
                 }
             }
+        },
+
+        openCloseChild : () => {
+            const $btn = $('#clickButton');
+
+            $btn.on('click', function () {
+                $(this).parent().toggleClass('active');
+            })
         },
 
         // Drodown

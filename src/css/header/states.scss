@@ -10,6 +10,21 @@
   }
 }
 
+@include keyframe (fadein) {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  1% {
+    padding: 14px;
+  }
+  100% {
+    padding: 14px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 @include keyframe (middle) {
   0% {
@@ -36,6 +51,23 @@
 }
 
 body {
+  .header {
+    // menu
+    .header__menu {
+      &.active {
+        .header__menu__btn {
+          i {
+            top: 0;
+            transform: rotateX(180deg);
+          }
+        }
+        .header__menu__content {
+          height: auto;
+          @include animation(1ms, 200ms, fadein)
+        }
+      }
+    }
+  }
   &.openMenu {
     @include downTo(md) {
       position:fixed;
@@ -74,6 +106,12 @@ body {
         right: 0;
         opacity: 1;
         z-index: 999;
+
+        &:before {
+          transition: all $ANIMATION_TIMING $ANIMATION_EASING;
+          transition-delay: 100ms;
+          background-color: $COLOR_BLUE;
+        }
 
         li {
           @for $i from 1 through 5 {

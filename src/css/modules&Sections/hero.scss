@@ -79,14 +79,18 @@
       }
     }
 
-    img {
+    img,
+    i {
       position: relative;
       align-self: flex-start;
       max-width: 100%;
       margin: 1.65rem 0 2rem;
+      color: white;
+      font-size: 2.4rem;
 
       @include upTo(sm) {
         margin: 1.5rem 0 0;
+        font-size: 3.4rem;
         max-width: 425px;
       }
     }
