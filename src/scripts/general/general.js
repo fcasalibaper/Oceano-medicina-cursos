@@ -10,7 +10,7 @@ export default function General() {
         },
 
         ready: () => {
-            toolResponsive();
+            // toolResponsive();
             oceano.onScroll();
             oceano.scrollElement('#referenceFixedPosition');
             oceano.dropDown();
