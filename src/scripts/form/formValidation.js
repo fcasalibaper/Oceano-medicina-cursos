@@ -17,6 +17,7 @@ export default function FormValidation() {
     selectCustom : {
       init: () => {
         oceanoForm.selectCustom.clickButton();
+        oceanoForm.selectCustom.closeOutside();
         oceanoForm.selectCustom.initValues();
         oceanoForm.selectCustom.closeMouseLeave();
       },
@@ -31,24 +32,47 @@ export default function FormValidation() {
       },
 
       clickButton : () => {
-        $(".custom-select-wrapper").on('click', function() {
-          $(this).find('.custom-select').toggleClass('open');
+
+        $(".custom-select-wrapper").on('click touchstart', function(e) {
+          const $select = $(this).find('.custom-select');
+          if( !$(this).hasClass('custom-select-wrapper--multi') ) {
+            $select.toggleClass('open');
+          } else {
+            !$select.hasClass('open') && $select.addClass('open');
+          }
         });
-        $('.custom-options').on('click', 'span', function() {
+
+        $('.custom-options').on('click touchstart', 'span', function(e) {
           const data = $(this);
           const parent = data.parent();
+          e.stopPropagation()
 
-          !parent.hasClass('custom-options--multi') ? oceanoForm.selectCustom.setNewData(data) : oceanoForm.selectCustom.setNewDataMulti(data)
-          
+          !parent.hasClass('custom-options--multi') ? oceanoForm.selectCustom.setNewData(data) : oceanoForm.selectCustom.setNewDataMulti(data);
+          return false
         });
       },
 
-      closeMouseLeave : () => {
-        const $mouseAction = $('.custom-select-wrapper');
+      closeOutside: () => {
+        const $coursesSelected = $('ul.listCourses');
 
-        $mouseAction.on('mouseleave', '.custom-select.open', function () {
-          $(this).toggleClass('open');
-        }) 
+        $coursesSelected.on('click touchstart','li', function () {
+          const text = $(this).text();
+          $(`span.custom-option[rel="${text}"]`).trigger('click');
+          return false
+        })
+      },
+
+      closeMouseLeave : () => {
+        const $mouseAction = $('.custom-select-wrapper--single');
+        const $mouseActionMulti = $('.custom-select-wrapper--multi');
+
+        $mouseAction.on('mouseleave touchend', function () {
+          $(this).find('.custom-select').hasClass('open') && $(this).find('.custom-select').removeClass('open');
+        });
+
+        $mouseActionMulti.add('.coursesSelected').on('mouseleave touchstart', function () {
+          $(this).find('.custom-select').hasClass('open') && $(this).find('.custom-select').removeClass('open');
+        });
       },
 
       setNewData : ( el ) => {
@@ -90,6 +114,7 @@ export default function FormValidation() {
         $elementToChange.find('span').html(separator);
         $elementToChange.find('input').val(separator);
         
+
         const all = titles.map(function (element) {
           return $(`<li>${element}</li>`)
         })
@@ -98,13 +123,13 @@ export default function FormValidation() {
         
         $('.listCourses').append(all);
 
-
         if ( !$('.custom-options').hasClass('selected') ) {
           // states 
           selectedData.toggleClass('selected');
           
           // remove initial plcaholder
           oceanoForm.selectCustom.removePlaceholder($elementToChange.find('span'))
+          oceanoForm.selectCustom.closeOutside();
         }
       },
 
