@@ -21,10 +21,10 @@
     /*display: none;*/
     // overflow: hidden;
     position: relative;
-    left: 0;
-    transition : all 350ms $ANIMATION_EASING;
+    // left: 0;
     @include downTo(md) {
-      margin: 0 10px;
+      transition : all 350ms $ANIMATION_EASING;
+      margin: 0 5px;
     }
   }
 

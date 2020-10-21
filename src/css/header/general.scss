@@ -57,9 +57,30 @@
       // MENU CURSES
       &--courses {
         padding: 120px 20px 20px 20px;
+
+         &:before {
+          content: '';
+          transition: all 1ms linear;
+          position: fixed;
+          width: 100%;
+          max-width: 213px;
+          z-index: 1;
+          height: 12%;
+          top: 0;
+          right: 0;
+        }
+
+        &.isApple {
+          padding: 90px 20px 75px 20px;
+
+          &:before { 
+            display: none;
+          }
+        }
         
         ul {
           overflow-y: scroll;
+          overflow-x: hidden;
           padding: 0 0 40px 0;
         }
 
@@ -72,17 +93,7 @@
         }
       }
 
-      &:before {
-        transition: all 1ms linear;
-        content: '';
-        position: fixed;
-        width: 100%;
-        max-width: 213px;
-        z-index: 1;
-        height: 12%;
-        top: 0;
-        right: 0;
-      }
+     
     }
 
     @include upTo(sm) {

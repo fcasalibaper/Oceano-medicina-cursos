@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { isMobile } from '../utils/utils';
+import { isMobile, isAppleDevice } from '../utils/utils';
 
 export default function Menu() {
     const oceano = {
@@ -21,6 +21,14 @@ export default function Menu() {
           oceano.mobileMenu();
         })
       },
+
+      onAppleDevices : () => {
+        const isApple = isAppleDevice();
+
+        if (isApple) {
+            $('.header__links--courses').addClass('isApple')
+        }
+    },
 
       menuCount: () => {
         const $parent = $('.header__menu');
@@ -48,7 +56,8 @@ export default function Menu() {
         const wrapperContent = $('.header__menu__content').html();
 
         if ( isMobile(mobileSize) ) {
-          $menuMobile.length == 0 && $(`<ul class="header__links header__links--courses"><li class="title"><a>Nuestros cursos</a></li><ul>${wrapperContent}</ul></ul>`).insertAfter($menu)
+          $menuMobile.length == 0 && $(`<ul class="header__links header__links--courses"><li class="title"><a>Nuestros cursos</a></li><ul>${wrapperContent}</ul></ul>`).insertAfter($menu);
+          oceano.onAppleDevices();
         } else {
           $menuMobile.length > 0 && $menuMobile.remove()
         }

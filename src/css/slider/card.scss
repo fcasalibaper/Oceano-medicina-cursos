@@ -38,20 +38,21 @@
     border-radius: 0px 0px 10px 10px;
     transition: $TRANSITION;
 
-    @include downTo(sm) {
-      top: 1.2rem
-    }
+    // @include downTo(sm) {
+    //   top: 1.2rem
+    // }
+    transform: scale(0.9);
 
     figure {
       overflow: hidden;
       display: flex;
       width: 100%;
-      height: 140px;
+      // height: 140px;
       transition: $TRANSITION;
 
-      @include upTo(sm) {
-        height: auto;
-      }
+      // @include upTo(sm) {
+      //   height: auto;
+      // }
 
       img {
         width: 100%;

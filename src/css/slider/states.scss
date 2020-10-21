@@ -12,21 +12,12 @@ $position_inactive: 10%;
   }
 }
 
-@include keyframe (figure) {
-  0% {
-    height: 140px;
-  }
-  100% {
-    height: 165px;
-  }
-}
-
 @include keyframe (box) {
   0% {
-    top: 1.2rem
+    transform: scale(0.9);
   }
   100% {
-    top: 0
+    transform: scale(1);
   }
 }
 
@@ -88,18 +79,15 @@ $position_inactive: 10%;
       &.slick-current {
         z-index: 1;
         @include upTo(sm) {
-          @include animation(100ms, 350ms, current);
+          // @include animation(100ms, 350ms, current);
+          opacity: 1;
+          transform: translate(0,0);
         }
 
+        // Mobile
         .card__box {
           @include downTo(sm) {
             @include animation(10ms, 200ms, box);
-          }
-        }
-
-        @include downTo(sm) {
-          figure {
-            @include animation(210ms, 150ms, figure);
           }
         }
   
@@ -110,13 +98,17 @@ $position_inactive: 10%;
   
       &.left {
         @include upTo(sm) {
-          @include animation(150ms, 350ms, left);
+          // @include animation(150ms, 350ms, left);
+          opacity: 1;
+          transform: translate(40%,5%)
         }
       }
   
       &.right {
         @include upTo(sm) {
-          @include animation(150ms, 350ms, right);
+          // @include animation(150ms, 350ms, right);
+          opacity: 1;
+          transform: translate(-40%,5%)
         }
       }
 
