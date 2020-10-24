@@ -29,7 +29,7 @@
         top: .2em;
         margin-left: .8rem;
         transition: $TRANSITION;
-        color: $COLOR_BLUE;
+        color: #ffffff;
 
         &:before {
           content: $icon-down;
@@ -96,9 +96,21 @@
     @include upTo(sm) {
       padding-left: #{$paddLeft}px;
       width: $size;
-    
-      &:nth-child(3n + 1) {
-        padding-left: 0;
+      
+      // center
+      &:nth-child(1) {
+        padding-left: #{$paddLeft / 4}px;
+        padding-right: #{$paddLeft / 4}px;
+      }
+      // first
+      &:nth-child(2) {
+        padding-right: #{$paddLeft / 4}px;
+        padding-left: #{$paddLeft / 4}px;
+      }
+      // last
+      &:nth-child(3) {
+        padding-left: #{$paddLeft / 4}px;
+        padding-right: #{$paddLeft / 4}px;
       }
     }
     @include break(xl) {

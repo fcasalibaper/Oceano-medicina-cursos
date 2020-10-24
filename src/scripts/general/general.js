@@ -27,7 +27,7 @@ export default function General() {
                 const ID = $(this).attr('href')
                 $('html, body').stop().animate({
                     scrollTop: $(ID).offset().top - isMobileOffset
-                  }, 250);
+                }, 250);
             })
         },
 

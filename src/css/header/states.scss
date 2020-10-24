@@ -57,6 +57,7 @@ body {
       &.active {
         .header__menu__btn {
           i {
+            color: $COLOR_BLUE;
             top: 0;
             transform: rotateX(180deg);
           }
