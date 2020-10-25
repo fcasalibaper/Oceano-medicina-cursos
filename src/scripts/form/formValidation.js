@@ -33,21 +33,27 @@ export default function FormValidation() {
 
       clickButton : () => {
 
-        $(".custom-select-wrapper").on('click touchstart', function(e) {
-          const $select = $(this).find('.custom-select');
-          if( !$(this).hasClass('custom-select-wrapper--multi') ) {
-            $select.toggleClass('open');
-          } else {
-            !$select.hasClass('open') && $select.addClass('open');
-          }
+        $(".custom-select-wrapper").on('click', '.custom-select', function(e) {
+          e.stopPropagation();
+          const $select = $(this);
+          // $('.custom-select-wrapper').find('.custom-select').removeClass('open');
+          $select.toggleClass('open');
+          return false
         });
 
-        $('.custom-options').on('click touchstart', 'span', function(e) {
-          const data = $(this);
-          const parent = data.parent();
+        $(".custom-options--single").on('click', 'span', function(e) {
           e.stopPropagation()
+          const $parentSelect = $(this).parent().closest('.custom-select');
+          const data = $(this);
+          $parentSelect.toggleClass('open')
+          oceanoForm.selectCustom.setNewData(data)
+          
+        });
 
-          !parent.hasClass('custom-options--multi') ? oceanoForm.selectCustom.setNewData(data) : oceanoForm.selectCustom.setNewDataMulti(data);
+        $('.custom-options--multi').on('click touchstart', 'span', function(e) {
+          const data = $(this);
+          oceanoForm.selectCustom.setNewDataMulti(data)
+          e.stopPropagation()
           return false
         });
       },
@@ -66,11 +72,11 @@ export default function FormValidation() {
         const $mouseAction = $('.custom-select-wrapper--single');
         const $mouseActionMulti = $('.custom-select-wrapper--multi');
 
-        $mouseAction.on('mouseleave touchend', function () {
+        $mouseAction.on('mouseleave', function () {
           $(this).find('.custom-select').hasClass('open') && $(this).find('.custom-select').removeClass('open');
         });
 
-        $mouseActionMulti.add('.coursesSelected').on('mouseleave touchstart', function () {
+        $mouseActionMulti.add('.coursesSelected').on('mouseleave', function () {
           $(this).find('.custom-select').hasClass('open') && $(this).find('.custom-select').removeClass('open');
         });
       },
