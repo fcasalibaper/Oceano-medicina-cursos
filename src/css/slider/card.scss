@@ -22,7 +22,7 @@
       width: 100%;
       max-width: 241px;
       @include upTo(sm) {
-        max-width: 356px;
+        max-width: 426px;
       }
     }
 
@@ -44,6 +44,7 @@
     transform: scale(0.9);
 
     figure {
+      position: relative;
       overflow: hidden;
       display: flex;
       width: 100%;
@@ -53,6 +54,23 @@
       // @include upTo(sm) {
       //   height: auto;
       // }
+
+      .tag {
+        position: absolute;
+        bottom: 10px;
+        right: 13px;
+        font-weight: $MEDIUM;
+        @include fontSize(14px);
+        padding: .5em .807em;
+        background-color: $COLOR_MAGENTA;
+        border-radius: 40px;
+        color: white;
+        text-transform: uppercase;
+
+        @include upTo(sm) {
+          display:none;
+        }
+      }
 
       img {
         width: 100%;
@@ -69,12 +87,11 @@
       h5 {
         font-weight: $BOLD;
         @include fontSize(16px);
-        line-height: 1em;
+        line-height: 1.3em;
         color: $COLOR_BLUE;
 
         @include upTo(sm) {
           @include fontSize(22px);
-          line-height: 1em;
         }
       }
     }
@@ -115,8 +132,12 @@
         background-color: $COLOR_CELESTE;
         text-align: center;
         @include fontSize(13px);
+        height: 47.5px;
+        line-height: 1.1;
         @include upTo(sm) {
-          @include fontSize(16px);
+          @include fontSize(18px);
+          height: 69px;
+          line-height: 2;
         }
 
         &:last-child {

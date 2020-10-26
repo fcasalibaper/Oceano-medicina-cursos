@@ -25,10 +25,12 @@
 
     
     i {
+      position: relative;
       font-size: .8em;
+      right: 1em;
       &:before {
         content: $icon-arrow-down;
-        color: $COLOR_DARKGREY;
+        color: $COLOR_CELESTE;
       }
     }
   }
@@ -43,7 +45,7 @@
     p {
       color: $COLOR_DARKGREY;
       @include fontSize(16px);
-      line-height: 1.2;
+      line-height: 1.3;
   
       @include upTo(sm) {
         @include fontSize(18px);
