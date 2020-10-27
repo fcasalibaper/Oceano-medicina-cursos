@@ -77,8 +77,8 @@ export default function Menu() {
 
     goToSlide : () => {
       const isMobileOffset = !isMobile() ?  + 40 : + 100;
-      const $menu = $('.header__menu__content');
-      const Slider = $('#slider-images');
+      const $menu = !isMobile() ? $('.header__menu__content') : $('.header__links--courses');
+      const $slider = $('#slider-images');
 
       $menu.find('li').on('click', function (e) {
         e.preventDefault();
@@ -86,9 +86,16 @@ export default function Menu() {
         $slider.slick('slickGoTo', slideno - 1);
 
         // goTo
-        $('html, body').stop().animate({
-          scrollTop: $('#allCourses').offset().top - isMobileOffset
-      }, 250);
+        if ( !isMobile() ) {
+          $('html, body').stop().animate({
+            scrollTop: $('#allCourses').offset().top
+          }, 250);
+        } else {
+          $('body').removeClass('openMenu');
+          $('html, body').stop().animate({
+            scrollTop: $('#allCourses').offset().top - isMobileOffset
+        }, 250);
+        }
       })
     }
     
