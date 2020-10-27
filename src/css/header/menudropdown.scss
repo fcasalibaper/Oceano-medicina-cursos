@@ -127,15 +127,33 @@
     }
 
     li {
-      margin: 1rem 0;
-      justify-content: flex-start;
+      
+      @include downTo(md) {
+        margin: 0 0 1rem;
+        display: flex;
+        justify-content: flex-end;
+      }
 
       @include upTo(sm) {
         margin: 2rem 0;
+        justify-content: flex-start;
       }
 
       a {
-        text-align: left;
+        text-align: right;
+        @include downTo(md) {
+          width: auto;
+          padding: 0 0 1rem;
+        }
+        @include upTo(sm) {
+          text-align: left;
+          font-weight: $MEDIUM;
+
+          &:hover,
+          &:focus {
+            font-weight: $BLACK;
+          }
+        }
       }
       
     }

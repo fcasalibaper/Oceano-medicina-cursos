@@ -61,14 +61,16 @@
         right: 13px;
         font-weight: $MEDIUM;
         @include fontSize(14px);
-        padding: .5em .807em;
+        line-height: 1;
+        padding: .35em .807em;
         background-color: $COLOR_MAGENTA;
         border-radius: 40px;
         color: white;
         text-transform: uppercase;
 
         @include upTo(sm) {
-          display:none;
+          @include fontSize(18px);
+          padding: .35em .95em;
         }
       }
 

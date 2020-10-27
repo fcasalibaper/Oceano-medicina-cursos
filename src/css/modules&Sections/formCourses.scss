@@ -129,19 +129,30 @@
             position: relative;
             @include fontSize(16px);
             margin-bottom: .55em;
-            
-            @include upTo(sm) {
-              @include fontSize(18px);
+
+            span.text {
+              @include upTo(sm) {
+                @include fontSize(18px);
+              }
             }
             
-            &:after {
-              cursor: pointer;
-              @extend .icon;
-              content: $icon-close;
-              font-size: .8em;
+            span.close {
               position: absolute;
-              top: .24em;
+              top: 50%;
               right: 0;
+              width: 15px;
+              height: 15px;
+              transform: translateY(-50%);
+
+              &:after {
+                position: absolute;
+                right: 0;
+                top: 0;
+                cursor: pointer;
+                @extend .icon;
+                content: $icon-close;
+                font-size: .8em;
+              }
             }
           }
         }

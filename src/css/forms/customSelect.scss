@@ -211,4 +211,10 @@
       }
     }
   }
+
+  &--multi {
+    span {
+      text-transform: none !important;
+    }
+  }
 }

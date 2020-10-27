@@ -61,8 +61,8 @@ export default function FormValidation() {
       closeOutside: () => {
         const $coursesSelected = $('ul.listCourses');
 
-        $coursesSelected.on('click touchstart','li', function () {
-          const text = $(this).text();
+        $coursesSelected.on('click touchstart','li > span.close', function () {
+          const text = $(this).siblings('.text').text();
           $(`span.custom-option[rel="${text}"]`).trigger('click');
           return false
         })
@@ -114,7 +114,7 @@ export default function FormValidation() {
         }
         let separator = titles.length > 0 ? titles.reduce((acc,el) => {
           return `${acc}, ${el}`
-        }) : 'Cursos de Interés';
+        }) : 'Cursos de interés';
 
         // prrint values 
         $elementToChange.find('span').html(separator);
@@ -122,7 +122,7 @@ export default function FormValidation() {
         
 
         const all = titles.map(function (element) {
-          return $(`<li>${element}</li>`)
+          return $(`<li><span class="text">${element}</span><span class="close"></span></li>`)
         })
 
         $('.coursesSelected').html(`<ul><li class="title">Cursos seleccionados</li><ul><ul class="listCourses"></ul>`)
