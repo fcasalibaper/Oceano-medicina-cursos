@@ -50,8 +50,8 @@ export default function FormValidation() {
           
         });
 
-        $('.custom-options--multi').on('click touchstart', 'span', function(e) {
-          const data = $(this);
+        $('.custom-options--multi').on('click touchstart', '.close', function(e) {
+          const data = $(this).parent('span');
           oceanoForm.selectCustom.setNewDataMulti(data)
           e.stopPropagation()
           return false
@@ -63,7 +63,7 @@ export default function FormValidation() {
 
         $coursesSelected.on('click touchstart','li > span.close', function () {
           const text = $(this).siblings('.text').text();
-          $(`span.custom-option[rel="${text}"]`).trigger('click');
+          $(`span.custom-option[rel="${text}"]>.close`).trigger('click');
           return false
         })
       },
@@ -102,6 +102,7 @@ export default function FormValidation() {
       setNewDataMulti : ( el ) => {
         const selectedData = el;
         const $elementToChange = selectedData.parent().siblings('.custom-select__trigger');
+        
 
         if (!el.hasClass('selected')) {
           titles.push(el.text());

@@ -84,7 +84,12 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 23px;
+      padding: 0 23px;
+      height: 90px;
+
+      @include upTo(sm) {
+        height: 120px;
+      }
 
       h5 {
         font-weight: $BOLD;
@@ -102,7 +107,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 23px;
+      padding: 0 23px 20px 23px;
 
       span {
         color: $COLOR_BLUE;
