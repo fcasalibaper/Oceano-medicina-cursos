@@ -207,6 +207,11 @@
     }
 
     &.country {
+      width: 115%;
+      max-width: 115%;
+      @include upTo(sm) {
+        width: 105%;
+      }
       .custom-option {
         @include downTo(md) {
           @include fontSize(17px);
